@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per la mia ragazza speciale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            color: #5d3a3a;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #9d4c6d;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            color: #7a3b5e;
+            margin-bottom: 20px;
+        }
+        
+        .heart {
+            color: #ff4d8d;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1.1); }
+            15% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card h2 {
+            color: #9d4c6d;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffafbd;
+            padding-bottom: 10px;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+
+        .img-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7a3b5e;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .memory-list {
+            list-style-type: none;
+        }
+        
+        .memory-list li {
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            border-left: 5px solid #ff4d8d;
+        }
+        
+        .love-meter {
+            background: #fff;
+            height: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ff4d8d, #ffafbd);
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .message-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .message-box p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #9d4c6d;
+            margin-top: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            margin-top: 40px;
+        }
+        
+        .interactive {
+            margin-top: 30px;
+        }
+        
+        button {
+            background: #ff4d8d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        
+        button:hover {
+            background: #9d4c6d;
+            transform: scale(1.05);
+        }
+        
+        .surprise {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .countdown-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 80px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff4d8d;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #7a3b5e;
+        }
+        
+
+        /* Modal per visualizzare l'immagine ingrandita */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #ff4d8d;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .card {
+                min-width: 100%;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Per la mia ragazza <span class="heart">❤</span></h1>
+            <p class="subtitle">Sei la persona più speciale della mia vita</p>
+            <p>Questo sito è dedicato a te, amore mio</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <h2><i class="fas fa-heart"></i> Perché ti amo</h2>
+                <ul class="memory-list">
+                    <li>Mi fai ridere anche nei giorni più difficili</li>
+                    <li>Hai un cuore d'oro e sei sempre comprensiva</li>
+                    <li>La tua bellezza mi lascia senza fiato ogni giorno</li>
+                    <li>Sei la mia migliore amica e la mia anima gemella</li>
+                    <li>Con te ogni momento è speciale</li>
+                    <li>Hai una voce angelica</li>
+                    <li>Dai gli abbracci migliori del mondo</li>
+                    <li>Sei un'artista coi fiocchi</li>
+                </ul>
+                <p style="margin-top: 20px;"><strong>Livello di amore:</strong></p>
+                <div class="love-meter">
+                    <div class="love-fill"></div>
+                </div>
+                <p style="text-align: center; margin-top: 5px;">100% infinito</p>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-images"></i> I nostri ricordi</h2>
+                <p>Questi sono i nostri momenti più belli insieme:</p>
+                <div class="photo-gallery">
+                    <div>
+                        <img src="FOTA 2.jpg" alt="Ricordo 1" class="gallery-img">
+                        <div class="img-caption">Best team ever</div>
+                    </div>
+                    <div>
+                       <img src="FOTA1.jpg" alt="Ricordo 1" class="gallery-img">
+                        <div class="img-caption">Il tuo visetto bellissimo mi fa battere il cuoricino</div>
+                    </div>
+                    <div>
+                       <img src="FOTA 3.jpg" alt="Ricordo 1" class="gallery-img">
+                        <div class="img-caption">the down king & the high princess</div>
+                    </div>
+                    <div>
+                       <img src="fota 7.jpg" alt="Ricordo 1" class="gallery-img">
+                        <div class="img-caption">Mai visto un'individuo così, originale</div>
+                    </div>
+                    <div>
+                        <img src="FOTA 5.jpg" alt="Ricordo 1" class="gallery-img">
+                        <div class="img-caption">Our first date togetherrrrr</div>
+                    </div>
+                    <div>
+                        <img src="FOTA 4.jpg" alt="Ricordo 1" class="gallery-img">
+                        <div class="img-caption">Il messicano e le sue due versioni</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;"><em>(Speriamo di farne tante altre in futuro dove magari sono più bello!)</em></p>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-calendar-alt"></i> Il nostro tempo insieme</h2>
+                <p>Sono passati:</p>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">0</div>
+                        <div class="countdown-label">Giorni</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="months">0</div>
+                        <div class="countdown-label">Mesi</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="years">0</div>
+                        <div class="countdown-label">Anni</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;">E ogni giorno con te è migliore del precedente!</p>
+                
+                <div class="interactive">
+                    <h3><i class="fas fa-gift"></i> Piccola sorpresa</h3>
+                    <button id="surpriseBtn">Clicca qui!</button>
+                    <div class="surprise" id="surpriseMessage">
+                        Sei la cosa più bella che mi sia mai capitata! Ti amo più di qualsiasi cosa al mondo. ❤
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="message-box">
+            <h2><i class="fas fa-envelope"></i> Un messaggio speciale per te</h2>
+            <p>Cara amore mio,</p>
+            <p>Volevo dirti quanto sei importante per me. Sei il bianco delle mie opere d'arte, la risata che colora i miei momenti, la forza che mi sostiene quando ne ho bisogno.</p>
+            <p>Grazie per essere sempre al mio fianco, per supportarmi in ogni mia scelta, per amarmi così come sono. Con te ho trovato la felicità che cercavo da sempre.</p>
+            <p>Non vedo l'ora di creare con te ancora tanti ricordi bellissimi e di vivere insieme tutte le avventure che la vita ci riserva.</p>
+            <p>E magari chi lo sa... far esplodere qualcosa :D .</p>
+            <p>Ti amo più di quanto le parole possano esprimere, infatti ti do tanti bacetti :3 .</p>
+            <div class="signature">Il messicano del tuo corazon</div>
+        </div>
+        
+        <footer>
+            <p>Creato con <span class="heart">❤</span> per la ragazza più speciale del mondo</p>
+            <p>Ogni giorno ti amo un po' di più, piattina:)</p>
+            <p><i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i></p>
+        </footer>
+    </div>
+
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage" src="" alt="Immagine ingrandita">
+    </div>
+
+
+    <script>
+        // Calcola i giorni, mesi e anni insieme
+        function calculateTimeTogether() {
+            // MODIFICA QUESTA DATA CON LA DATA DEL TUO PRIMO APPUNTAMENTO/INIZIO RELAZIONE
+            const startDate = new Date('2025-12-01'); // Inserisci la vostra data qui
+            
+            const today = new Date();
+            const diffTime = Math.abs(today - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            // Calcola anni e mesi
+            let years = today.getFullYear() - startDate.getFullYear();
+            let months = today.getMonth() - startDate.getMonth();
+            
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+            
+            // Aggiorna il conteggio sulla pagina
+            document.getElementById('days').textContent = diffDays;
+            document.getElementById('months').textContent = months;
+            document.getElementById('years').textContent = years;
+        }
+        
+        // Gestisce il bottone sorpresa
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            const surpriseMessage = document.getElementById('surpriseMessage');
+            surpriseMessage.style.display = 'block';
+            
+            // Cambia il messaggio casualmente
+            const messages = [
+                "Sei la cosa più bella che mi sia mai capitata! Ti amo più di qualsiasi cosa al mondo. ❤",
+                "Ogni volta che ti vedo il mio cuore fa un salto di gioia! 😍",
+                "Non potrei immaginare la mia vita senza di te. Sei la mia persona preferita. 💕",
+                "Grazie per essere esattamente come sei. Sei perfetta per me. 🌟",
+                "Il mio amore per te cresce ogni giorno di più. Sei incredibile! 💖"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            surpriseMessage.textContent = randomMessage;
+            
+            // Nascondi il messaggio dopo 10 secondi
+            setTimeout(() => {
+                surpriseMessage.style.display = 'none';
+            }, 10000);
+        });
+        
+ const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeModal = document.querySelector('.close-modal');
+        
+        // Aggiungi event listener a tutte le immagini della galleria
+        document.querySelectorAll('.gallery-img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+            });
+        });
+        
+        // Chiudi il modal quando si clicca sulla X
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Chiudi il modal quando si clicca fuori dall'immagine
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+
+        // Aggiunge un effetto di cuori che cadono
+        function createFallingHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤';
+            heart.style.position = 'fixed';
+            heart.style.top = '-20px';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.color = '#ff4d8d';
+            heart.style.opacity = '0.7';
+            heart.style.zIndex = '-1';
+            heart.style.pointerEvents = 'none';
+            document.body.appendChild(heart);
+            
+            // Animazione
+            const animation = heart.animate([
+                { transform: 'translateY(0px) rotate(0deg)', opacity: 0.7 },
+                { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 3000,
+                easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+            });
+            
+            animation.onfinish = () => {
+                heart.remove();
+            };
+        }
+        
+        // Inizializza tutto quando la pagina è caricata
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateTimeTogether();
+            
+            // Aggiorna il conteggio ogni giorno
+            setInterval(calculateTimeTogether, 86400000); // 24 ore
+            
+            // Crea cuori che cadono ogni 300-800ms
+            setInterval(createFallingHearts, Math.random() * 500 + 300);
+            
+            // Crea alcuni cuori iniziali
+            for(let i = 0; i < 15; i++) {
+                setTimeout(() => createFallingHearts(), i * 200);
+            }
+        });
+    </script>
+</body>
+
+</html>
